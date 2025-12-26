@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #fef9f3 0%, #fdf2e9 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: #3d3d3d;
+}
+
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  color: #2c2c2c;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.vibe-tag {
+  display: inline-block;
+  background: #f4a261;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.location-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.location-tab {
+  flex: 1;
+  padding: 14px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: white;
+  font-family: 'Georgia', serif;
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.location-tab.active {
+  border-color: #f4a261;
+  background: #fff8f3;
+  color: #e76f51;
+  font-weight: 600;
+}
+
+.location-tab .tab-icon {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.location-tab .tab-status {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.hunt-section {
+  display: none;
+}
+
+.hunt-section.active {
+  display: block;
+}
+
+.progress-section {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.progress-bar {
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f4a261, #e76f51);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
+}
+
+.section {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.challenge-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px dashed #eee;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.challenge-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.challenge-item:first-of-type {
+  padding-top: 0;
+}
+
+.challenge-item.completed {
+  opacity: 0.5;
+}
+
+.challenge-item.completed .challenge-text {
+  text-decoration: line-through;
+}
+
+.checkbox {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.challenge-item.completed .checkbox {
+  background: #f4a261;
+  border-color: #f4a261;
+}
+
+.checkbox svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.challenge-item.completed .checkbox svg {
+  opacity: 1;
+}
+
+.challenge-content {
+  flex: 1;
+}
+
+.challenge-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.challenge-hint {
+  font-size: 0.8rem;
+  color: #999;
+  font-style: italic;
+}
+
+.completion-message {
+  display: none;
+  text-align: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #f4a261 0%, #e76f51 100%);
+  border-radius: 16px;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.completion-message.show {
+  display: block;
+  animation: celebrate 0.5s ease;
+}
+
+@keyframes celebrate {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.completion-message h2 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.completion-message p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.heart {
+  color: #e76f51;
+  font-size: 1.2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #bbb;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.reset-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  color: #999;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  border-color: #f4a261;
+  color: #f4a261;
+}
