@@ -1,0 +1,15 @@
+{
+  "name": "scavenger-hunt",
+  "version": "1.0.0",
+  "description": "Craft store scavenger hunt for a perfect crafternoon",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
