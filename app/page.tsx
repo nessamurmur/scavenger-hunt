@@ -186,21 +186,26 @@ export default function Home() {
         <div className="section">
           <h2 className="section-title">Your Supply Hunt</h2>
 
-          {craftChallenges.map((challenge) => (
-            <div
-              key={challenge.id}
-              className={`challenge-item ${progress[challenge.id] ? "completed" : ""}`}
-              onClick={() => toggleItem(challenge.id)}
-            >
-              <div className="checkbox">
-                <CheckIcon />
+          {craftChallenges.map((challenge, index) => {
+            const isFirstUncompleted = !progress[challenge.id] &&
+              craftChallenges.slice(0, index).every(c => progress[c.id]);
+            return (
+              <div
+                key={challenge.id}
+                className={`challenge-item ${progress[challenge.id] ? "completed" : ""}`}
+                onClick={() => toggleItem(challenge.id)}
+              >
+                <div className="checkbox">
+                  <CheckIcon />
+                </div>
+                <div className="challenge-content">
+                  <p className="challenge-hint">{challenge.hint}</p>
+                  <p className="challenge-text">{challenge.text}</p>
+                  {isFirstUncompleted && <p className="tap-hint">tap to complete</p>}
+                </div>
               </div>
-              <div className="challenge-content">
-                <p className="challenge-text">{challenge.text}</p>
-                <p className="challenge-hint">{challenge.hint}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <button className="reset-btn" onClick={() => resetProgress("craft")}>
@@ -230,21 +235,26 @@ export default function Home() {
         <div className="section">
           <h2 className="section-title">Your Inspiration Hunt</h2>
 
-          {libraryChallenges.map((challenge) => (
-            <div
-              key={challenge.id}
-              className={`challenge-item ${progress[challenge.id] ? "completed" : ""}`}
-              onClick={() => toggleItem(challenge.id)}
-            >
-              <div className="checkbox">
-                <CheckIcon />
+          {libraryChallenges.map((challenge, index) => {
+            const isFirstUncompleted = !progress[challenge.id] &&
+              libraryChallenges.slice(0, index).every(c => progress[c.id]);
+            return (
+              <div
+                key={challenge.id}
+                className={`challenge-item ${progress[challenge.id] ? "completed" : ""}`}
+                onClick={() => toggleItem(challenge.id)}
+              >
+                <div className="checkbox">
+                  <CheckIcon />
+                </div>
+                <div className="challenge-content">
+                  <p className="challenge-hint">{challenge.hint}</p>
+                  <p className="challenge-text">{challenge.text}</p>
+                  {isFirstUncompleted && <p className="tap-hint">tap to complete</p>}
+                </div>
               </div>
-              <div className="challenge-content">
-                <p className="challenge-text">{challenge.text}</p>
-                <p className="challenge-hint">{challenge.hint}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <button className="reset-btn" onClick={() => resetProgress("library")}>
@@ -253,7 +263,8 @@ export default function Home() {
       </div>
 
       <footer>
-        <span className="heart">&#10084;</span> I can&apos;t wait to spend this day with you.
+        <p>I can&apos;t wait to spend this day with you.</p>
+        <span className="heart">&#10084;</span>
       </footer>
     </div>
   );
